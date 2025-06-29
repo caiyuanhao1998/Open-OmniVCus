@@ -40,7 +40,7 @@
 This is an implementation of our work "OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions". In this work, we present a data construction pipeline that can create data pairs and a diffusion Transformer for subject-driven video customization under different control conditions. If you find our repo useful, please give it a star ⭐ and consider citing our paper. Thank you :)
 
 <p align="center">
-  <img src="/img/data_pipeline" alt="data_pipeline" width="600">
+  <img src="/img/data_pipeline.png" alt="data_pipeline" width="600">
 </p>
 
 <p align="center"><strong>Figure 1:</strong> Overview of the data construction pipeline.</p>
