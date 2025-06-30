@@ -55,16 +55,17 @@ This is an implementation of our work "OmniVCus: Feedforward Subject-driven Vide
 
 ### Comparison with State-of-the-Art Methods
 
-<details close>
+<details open>
 <summary><b>Qualitative Comparison</b></summary>
 
+<p align="center"> Prompt: <em>The woman in <span style="color: green;">IMG1</span> is talking to a man on a street</em> </p> 
 
 <img src="/img/compare_img.png" width=400px>
 <img src="/img/compare_wan.gif" width=400px>
 <img src="/img/compare_skyreel.gif" width=400px>
 <img src="/img/compare_ours.gif" width=400px>
 
-<p align="center">Top-left: Input Image. Top-right: SkyReels-A2. Bottom-left: OmniGen + Wan2.1-I2V. Bottom-right: Ours. Prompt: <em>The woman in <span style="color: green;">IMG1</span> is talking to a man on a street</em></p>
+<p align="center">Top-left: Input Image. Top-right: SkyReels-A2. Bottom-left: OmniGen + Wan2.1-I2V. Bottom-right: Ours. </p> 
 
 </details>
 
