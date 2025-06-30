@@ -58,9 +58,21 @@ This is an implementation of our work "OmniVCus: Feedforward Subject-driven Vide
 <details close>
 <summary><b>Qualitative Comparison</b></summary>
 
-![visual_results](/img/compare_figure.png)
+<table>
+  <tr>
+    <td><img src="/img/compare_img.png" width="45%"></td>
+    <td><img src="/img/compare_wan.gif" width="45%"></td>
+  </tr>
+  <tr>
+    <td><img src="/img/compare_skyreel.gif" width="45%"></td>
+    <td><img src="/img/compare_ours.gif" width="45%"></td>
+  </tr>
+</table>
+
+<p align="center"><em>Figure: Qualitative comparison between our method and baselines.</em></p>
 
 </details>
+
 
 
 <details close>
