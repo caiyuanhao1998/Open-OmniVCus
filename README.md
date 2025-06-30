@@ -58,7 +58,9 @@ This is an implementation of our work "OmniVCus: Feedforward Subject-driven Vide
 <details open>
 <summary><b>Qualitative Comparison</b></summary>
 
-<p align="center"> Prompt: <em>The woman in <span style="color: green;">IMG1</span> is talking to a man on a street</em> </p> 
+&nbsp;
+
+<p align="center"> Prompt: The woman in <span style="color: green;">IMG1</span> is talking to a man on a street </p> 
 
 <img src="/img/compare_img.png" width=400px>
 <img src="/img/compare_wan.gif" width=400px>
