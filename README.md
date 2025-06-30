@@ -64,7 +64,7 @@ This is an implementation of our work "OmniVCus: Feedforward Subject-driven Vide
 <img src="/img/compare_skyreel.gif" width=400px>
 <img src="/img/compare_ours.gif" width=400px>
 
-<p align="center"><em>The woman in IMG1 is talking to a man on a street</em></p>
+<p align="center">Top-left: Input Image. Top-right: SkyReels-A2. Bottom-left: OmniGen + Wan2.1-I2V. Bottom-right: Ours. Prompt: <em>The woman in <span style="color: green;">IMG1</span> is talking to a man on a street</em></p>
 
 </details>
 
