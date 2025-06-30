@@ -11,8 +11,6 @@
 <p align="center">
   <img src="img/demo_1.png" width="45%" alt="abo">
   <img src="img/demo_2.png" width="45%" alt="gso">
-</p>
-<p align="center">
   <img src="img/demo_1.gif" width="45%" alt="flux_1">
   <img src="img/demo_2.gif" width="45%" alt="green_man">
 </p>
