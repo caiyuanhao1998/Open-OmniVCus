@@ -58,12 +58,28 @@ This is an implementation of our work "OmniVCus: Feedforward Subject-driven Vide
 <details close>
 <summary><b>Qualitative Comparison</b></summary>
 
-<img src="/img/compare_img.png" width=400px>
-<img src="/img/compare_wan.gif" width=400px>
-<img src="/img/compare_skyreel.gif" width=400px>
-<img src="/img/compare_ours.gif" width=400px>
 
-<p align="center"><em>Figure: Qualitative comparison between our method and baselines.</em></p>
+<figure style="display:inline-block; text-align:center; margin: 10px;">
+  <img src="/img/compare_img.png" width="400px">
+  <figcaption><em>Input Image</em></figcaption>
+</figure>
+
+<figure style="display:inline-block; text-align:center; margin: 10px;">
+  <img src="/img/compare_wan.gif" width="400px">
+  <figcaption><em>OmniGen + WanI2V-2.1</em></figcaption>
+</figure>
+
+<figure style="display:inline-block; text-align:center; margin: 10px;">
+  <img src="/img/compare_skyreel.gif" width="400px">
+  <figcaption><em>SkyReel-A2</em></figcaption>
+</figure>
+
+<figure style="display:inline-block; text-align:center; margin: 10px;">
+  <img src="/img/compare_ours.gif" width="400px">
+  <figcaption><em>Ours</em></figcaption>
+</figure>
+
+<p align="center"><em>The woman in IMG1 is talking to a man on a street</em></p>
 
 </details>
 
