@@ -66,7 +66,7 @@ This is an implementation of our work "OmniVCus: Feedforward Subject-driven Vide
 <details close>
 <summary><b>Quantitative Comparison</b></summary>
 
-![results1](/img/compare_table.png)
+![results1](/img/quantitative_comparison.png)
 
 </details>
 
