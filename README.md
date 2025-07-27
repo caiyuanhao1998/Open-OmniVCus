@@ -75,10 +75,10 @@ This is an implementation of our work "OmniVCus: Feedforward Subject-driven Vide
 
 ## Citation
 ```sh
-@article{omnivcus,
+@article{cai2025omnivcus,
   title={OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions},
-  author={Yuanhao Cai and He Zhang and Xi Chen and Jinbo Xing and Kai Zhang and Yiwei Hu and Yuqian Zhou and Zhifei Zhang and Soo Ye Kim and Tianyu Wang and Yulun Zhang and Xiaokang Yang and Zhe Lin and Alan Yuille},
-  journal={arXiv preprint arXiv:2506.6579457},
+  author={Cai, Yuanhao and Zhang, He and Chen, Xi and Xing, Jinbo and Hu, Yiwei and Zhou, Yuqian and Zhang, Kai and Zhang, Zhifei and Kim, Soo Ye and Wang, Tianyu and others},
+  journal={arXiv preprint arXiv:2506.23361},
   year={2025}
 }
 ```
