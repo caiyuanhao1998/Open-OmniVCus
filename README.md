@@ -35,6 +35,7 @@ This is an implementation of our work "OmniVCus: Feedforward Subject-driven Vide
 
 
 ### News
+- **2025.09.19 :** Our paper has been accepted by NeurIPS 2025. 🎉 🎊
 - **2025.06.30 :** Our paper is on [arxiv](https://arxiv.org/abs/2411.14384) now. 🚀
 - **2025.06.28 :** Our [project page](https://caiyuanhao1998.github.io/project/OmniVCus/) has been built up. Feel free to check the video generation results on the project page.
 
