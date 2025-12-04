@@ -1,0 +1,13 @@
+numpy
+torch
+torchvision
+opencv-python
+matplotlib
+pillow
+imageio
+imageio-ffmpeg
+decord
+xformers
+einops
+easydict
+tqdm
