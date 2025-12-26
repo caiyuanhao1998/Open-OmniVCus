@@ -229,7 +229,8 @@ def get_cropped_flows(
 
 s3_track_name = 'motion_control_debug/0_0_10_track.npy'
 s3_video_name = 'motion_control_debug/0_0_10.mp4'
-track = np.load(s3_track_name)
+track = np.load(s3_track_name) # (128, 100, 2)
+# stx()
 track = torch.from_numpy(track).permute(1,0,2)
 
 video_reader = VideoReader(s3_video_name, ctx=cpu(0))

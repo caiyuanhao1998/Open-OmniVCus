@@ -1,0 +1,1 @@
+ln -s /genai/fsx-project/yuanhaoc/T2V_data/ T2V_data

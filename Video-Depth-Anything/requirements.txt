@@ -1,7 +1,3 @@
-numpy
-torch
-torchvision
-opencv-python
 matplotlib
 pillow
 imageio
@@ -10,4 +6,3 @@ decord
 xformers
 einops
 easydict
-tqdm

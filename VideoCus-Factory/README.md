@@ -1,190 +1,233 @@
-# SAM 2: Segment Anything in Images and Videos
+&nbsp;
 
-**[AI at Meta, FAIR](https://ai.meta.com/research/)**
+<div align="center">
 
-[Nikhila Ravi](https://nikhilaravi.com/), [Valentin Gabeur](https://gabeur.github.io/), [Yuan-Ting Hu](https://scholar.google.com/citations?user=E8DVVYQAAAAJ&hl=en), [Ronghang Hu](https://ronghanghu.com/), [Chaitanya Ryali](https://scholar.google.com/citations?user=4LWx24UAAAAJ&hl=en), [Tengyu Ma](https://scholar.google.com/citations?user=VeTSl0wAAAAJ&hl=en), [Haitham Khedr](https://hkhedr.com/), [Roman Rädle](https://scholar.google.de/citations?user=Tpt57v0AAAAJ&hl=en), [Chloe Rolland](https://scholar.google.com/citations?hl=fr&user=n-SnMhoAAAAJ), [Laura Gustafson](https://scholar.google.com/citations?user=c8IpF9gAAAAJ&hl=en), [Eric Mintun](https://ericmintun.github.io/), [Junting Pan](https://junting.github.io/), [Kalyan Vasudev Alwala](https://scholar.google.co.in/citations?user=m34oaWEAAAAJ&hl=en), [Nicolas Carion](https://www.nicolascarion.com/), [Chao-Yuan Wu](https://chaoyuan.org/), [Ross Girshick](https://www.rossgirshick.info/), [Piotr Dollár](https://pdollar.github.io/), [Christoph Feichtenhofer](https://feichtenhofer.github.io/)
+<p align="center"> <img src="../img/logo.png" width="250px"> </p>
 
-[[`Paper`](https://ai.meta.com/research/publications/sam-2-segment-anything-in-images-and-videos/)] [[`Project`](https://ai.meta.com/sam2)] [[`Demo`](https://sam2.metademolab.com/)] [[`Dataset`](https://ai.meta.com/datasets/segment-anything-video)] [[`Blog`](https://ai.meta.com/blog/segment-anything-2)] [[`BibTeX`](#citing-sam-2)]
+[![arXiv](https://img.shields.io/badge/paper-arxiv-179bd3)](https://arxiv.org/abs/2411.14384)
+[![project](https://img.shields.io/badge/project-page-green)](https://caiyuanhao1998.github.io/project/OmniVCus/)
+[![hf](https://img.shields.io/badge/hugging-face-green)](https://huggingface.co/datasets/CaiYuanhao/OmniVCus)
+<h3>OmniVCus: Feedforward Subject-driven Video <br> Customization with Multimodal Control Conditions</h3> 
 
-![SAM 2 architecture](assets/model_diagram.png?raw=true)
+<p align="center">
+  <img src="../img/demo_1.png" width="45%" alt="1">
+  <img src="../img/demo_2.png" width="45%" alt="2">
+  <img src="../img/demo_1.gif" width="45%" alt="1">
+  <img src="../img/demo_2.gif" width="45%" alt="2">
+</p>
 
-**Segment Anything Model 2 (SAM 2)** is a foundation model towards solving promptable visual segmentation in images and videos. We extend SAM to video by considering images as a video with a single frame. The model design is a simple transformer architecture with streaming memory for real-time video processing. We build a model-in-the-loop data engine, which improves model and data via user interaction, to collect [**our SA-V dataset**](https://ai.meta.com/datasets/segment-anything-video), the largest video segmentation dataset to date. SAM 2 trained on our data provides strong performance across a wide range of tasks and visual domains.
 
-![SA-V dataset](assets/sa_v_dataset.jpg?raw=true)
+&nbsp;
 
-## Installation
+</div>
 
-SAM 2 needs to be installed first before use. The code requires `python>=3.10`, as well as `torch>=2.3.1` and `torchvision>=0.18.1`. Please follow the instructions [here](https://pytorch.org/get-started/locally/) to install both PyTorch and TorchVision dependencies. You can install SAM 2 on a GPU machine using:
+
+
+### Introduction
+This part of code implements our data construction pipeline, VideoCus-Factory, for multi-modal control subject-driven video customization. If you find our repo useful, please give it a star ⭐ and consider citing our paper. Thank you :)
+
+&nbsp;
+
+<p align="center">
+  <img src="../img/data_pipeline.png" alt="pipeline" width="900">
+</p>
+
+<p align="center"><strong>Figure 1:</strong> Our Data Construction Pipeline - VideoCus-Factory</p>
+
+
+&nbsp;
+
+Using our data construction pipeline can generate training data pairs and control conditions from only video data for multi-modal subject-driven video customization. An example is shown as follow.
+
+<p align="center">
+<table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:0;">
+
+  <!-- ===== Row 1 Prompt ===== -->
+  <tr>
+    <td colspan="3" align="center" style="border:0;padding:6px 10px;font-style:italic;">
+      Generated Prompt: a woman and a child playing with a toy train.
+    </td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="img/video_data.gif" width="250" height="140">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="img/entity.png" width="250" height="140">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="img/aug_entity.png"  width="250" height="140">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Original Video</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Segmented Subject</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Augmented Subject</td>
+  </tr>
+
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="img/depth.gif" width="250" height="140">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="img/mask.gif" width="250" height="140">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="img/flow.gif" width="250" height="140">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Depth Video</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Mask Video</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Motion Video</td>
+  </tr>
+
+</table>
+</p>
+
+&nbsp;
+
+## 1. Environment Installation
 
 ```bash
-git clone https://github.com/facebookresearch/segment-anything-2.git
+conda create -n videocus_factory python=3.10 -y
 
-cd segment-anything-2 & pip install -e .
+conda activate videocus_factory
+
+pip install -e .
 
 pip install transformers==4.47.1
 
 pip install imageio[ffmpeg]
-```
-If you are installing on Windows, it's strongly recommended to use [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) with Ubuntu.
 
-To use the SAM 2 predictor and run the example notebooks, `jupyter` and `matplotlib` are required and can be installed by:
-
-```bash
-pip install -e ".[demo]"
+pip install opencv-python
 ```
 
-Note:
-1. It's recommended to create a new Python environment via [Anaconda](https://www.anaconda.com/) for this installation and install PyTorch 2.3.1 (or higher) via `pip` following https://pytorch.org/. If you have a PyTorch version lower than 2.3.1 in your current environment, the installation command above will try to upgrade it to the latest PyTorch version using `pip`.
-2. The step above requires compiling a custom CUDA kernel with the `nvcc` compiler. If it isn't already available on your machine, please install the [CUDA toolkits](https://developer.nvidia.com/cuda-toolkit-archive) with a version that matches your PyTorch CUDA version.
-3. If you see a message like `Failed to build the SAM 2 CUDA extension` during installation, you can ignore it and still use SAM 2 (some post-processing functionality may be limited, but it doesn't affect the results in most cases).
+## 2. Data Preparation
+We suggest you download the VidGen-1M as the original text-video data pool.
 
-Please see [`INSTALL.md`](./INSTALL.md) for FAQs on potential issues and solutions.
+```sh
+git lfs install
+git clone https://huggingface.co/datasets/Fudan-FUXI/VIDGEN-1M
 
-## Getting Started
+# or using the huggingface_hub
+pip install -U "huggingface-hub==0.26.2" --force-reinstall
+```
 
-### Download Checkpoints
+Place them into the path `T2V_data` and organize them as
 
-First, we need to download a model checkpoint. All the model checkpoints can be downloaded by running:
+```sh
+|--T2V_data
+  |--VIDGEN-1M
+    |-- VidGen_1M_video_caption.json
+    |-- VidGen_video_0.zip
+    |-- VidGen_video_1.zip
+    |-- ...
+    |-- VidGen_video_2047.zip
+  |--VIDGEN-1M_unzip
+    |-- NjDCwU95uGM-Scene-0013.mp4
+    |-- eK1N96Zwt-U-Scene-0013.mp4
+    |-- x8qD1uU7Hng-Scene-0009.mp4
+    |-- y8IQw4dn-JE-Scene-0056.mp4
+    |-- zt1GLX-vGl4-Scene-0077.mp4
+    |-- ...
+```
 
-```bash
+Download the T2I data as teh random background, place them under the folder `T2I_data`
+
+```sh
+mkdir T2I_data
+cd T2I_data
+huggingface-cli download jackyhate/text-to-image-2M \
+    --repo-type dataset \
+    --local-dir data_1024_10K \
+    --include "data_1024_10K/*"
+```
+
+with the following folder structure
+
+```sh
+|--T2I_data
+  |--data_1024_10K
+    |--data_000000
+      |--flux_1024_10k_00000000.jpg
+      |--flux_1024_10k_00000000.json
+      |--flux_1024_10k_00000001.jpg
+      |--flux_1024_10k_00000001.json
+      |--flux_1024_10k_00000002.jpg
+      |--flux_1024_10k_00000002.json
+      |--...
+```
+
+
+Download our json file
+
+```sh
+git clone https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train
+```
+
+Also place it into the path `T2V_data`
+```sh
+|--T2V_data
+  |--vidgen_filter_gemini_part_0.json
+  |--vidgen_filter_gemini_part_1.json
+  |--vidgen_filter_gemini_part_2.json
+  |--vidgen_filter_gemini_part_3.json
+  |--vidgen_filter_gemini_part_4.json
+  |--vidgen_filter_gemini_part_5.json
+  |--vidgen_filter_gemini_part_6.json
+  |--vidgen_filter_gemini_part_7.json
+```
+
+&nbsp;
+
+## 3. Download Foundation Model Checkpoints
+
+Our data construction pipeline needs the following foundation models. Please download them and place them into the folder `checkpoints/`
+
+```sh
+# sam2_hiera_large
 cd checkpoints && \
 ./download_ckpts.sh && \
 cd ..
+
+# kosmos-2
+git clone https://huggingface.co/microsoft/kosmos-2-patch14-224
+
+# if you failed, please try huggingface-cli
+huggingface-cli download microsoft/kosmos-2-patch14-224 --local-dir checkpoints/kosmos-2-patch14-224 --local-dir-use-symlinks False
+```
+`Note:` for other foundation model checkpoints, you can use auto-downloading in our data construction code.
+
+
+&nbsp;
+
+# 4. Construct Data
+We have provided 135K processed data. You can easily download them from our Huggingface Page or Google Drive
+```sh
+git clone https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train
+```
+If you want to construct the data your self, please run the following commonds to construct the corresponding control conditions
+```sh
+# 1. referece image condition & mask condition
+. process_data_customization.sh
+
+# 2. depth condition
+. process_data_depth.sh
+
+# 3. motion condition
+. process_data_track.sh
+```
+Please note that the depth condition here is predicted from the `Depth-Anything-2` model, which is worse than the `Video-Depth-Anything` model. Please enter the folder `Open-OmniVCus/Video-Depth-Anything` if you want to use the better model.
+
+We also provide the code visualize the track in video, please run
+```sh
+. track_vis.sh
 ```
 
-or individually from:
-
-- [sam2_hiera_tiny.pt](https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_tiny.pt)
-- [sam2_hiera_small.pt](https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_small.pt)
-- [sam2_hiera_base_plus.pt](https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_base_plus.pt)
-- [sam2_hiera_large.pt](https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_large.pt)
-
-Then SAM 2 can be used in a few lines as follows for image and video prediction.
-
-### Image prediction
-
-SAM 2 has all the capabilities of [SAM](https://github.com/facebookresearch/segment-anything) on static images, and we provide image prediction APIs that closely resemble SAM for image use cases. The `SAM2ImagePredictor` class has an easy interface for image prompting.
-
-```python
-import torch
-from sam2.build_sam import build_sam2
-from sam2.sam2_image_predictor import SAM2ImagePredictor
-
-checkpoint = "./checkpoints/sam2_hiera_large.pt"
-model_cfg = "sam2_hiera_l.yaml"
-predictor = SAM2ImagePredictor(build_sam2(model_cfg, checkpoint))
-
-with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
-    predictor.set_image(<your_image>)
-    masks, _, _ = predictor.predict(<input_prompts>)
-```
-
-Please refer to the examples in [image_predictor_example.ipynb](./notebooks/image_predictor_example.ipynb) (also in Colab [here](https://colab.research.google.com/github/facebookresearch/segment-anything-2/blob/main/notebooks/image_predictor_example.ipynb)) for static image use cases.
-
-SAM 2 also supports automatic mask generation on images just like SAM. Please see [automatic_mask_generator_example.ipynb](./notebooks/automatic_mask_generator_example.ipynb) (also in Colab [here](https://colab.research.google.com/github/facebookresearch/segment-anything-2/blob/main/notebooks/automatic_mask_generator_example.ipynb)) for automatic mask generation in images.
-
-### Video prediction
-
-For promptable segmentation and tracking in videos, we provide a video predictor with APIs for example to add prompts and propagate masklets throughout a video. SAM 2 supports video inference on multiple objects and uses an inference state to keep track of the interactions in each video.
-
-```python
-import torch
-from sam2.build_sam import build_sam2_video_predictor
-
-checkpoint = "./checkpoints/sam2_hiera_large.pt"
-model_cfg = "sam2_hiera_l.yaml"
-predictor = build_sam2_video_predictor(model_cfg, checkpoint)
-
-with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
-    state = predictor.init_state(<your_video>)
-
-    # add new prompts and instantly get the output on the same frame
-    frame_idx, object_ids, masks = predictor.add_new_points_or_box(state, <your_prompts>):
-
-    # propagate the prompts to get masklets throughout the video
-    for frame_idx, object_ids, masks in predictor.propagate_in_video(state):
-        ...
-```
-
-Please refer to the examples in [video_predictor_example.ipynb](./notebooks/video_predictor_example.ipynb) (also in Colab [here](https://colab.research.google.com/github/facebookresearch/segment-anything-2/blob/main/notebooks/video_predictor_example.ipynb)) for details on how to add click or box prompts, make refinements, and track multiple objects in videos.
-
-## Load from 🤗 Hugging Face
-
-Alternatively, models can also be loaded from [Hugging Face](https://huggingface.co/models?search=facebook/sam2) (requires `pip install huggingface_hub`).
-
-For image prediction:
-
-```python
-import torch
-from sam2.sam2_image_predictor import SAM2ImagePredictor
-
-predictor = SAM2ImagePredictor.from_pretrained("facebook/sam2-hiera-large")
-
-with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
-    predictor.set_image(<your_image>)
-    masks, _, _ = predictor.predict(<input_prompts>)
-```
-
-For video prediction:
-
-```python
-import torch
-from sam2.sam2_video_predictor import SAM2VideoPredictor
-
-predictor = SAM2VideoPredictor.from_pretrained("facebook/sam2-hiera-large")
-
-with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
-    state = predictor.init_state(<your_video>)
-
-    # add new prompts and instantly get the output on the same frame
-    frame_idx, object_ids, masks = predictor.add_new_points_or_box(state, <your_prompts>):
-
-    # propagate the prompts to get masklets throughout the video
-    for frame_idx, object_ids, masks in predictor.propagate_in_video(state):
-        ...
-```
-
-## Model Description
-
-|      **Model**       | **Size (M)** |    **Speed (FPS)**     | **SA-V test (J&F)** | **MOSE val (J&F)** | **LVOS v2 (J&F)** |
-| :------------------: | :----------: | :--------------------: | :-----------------: | :----------------: | :---------------: |
-|   sam2_hiera_tiny    |     38.9     |          47.2          |        75.0         |        70.9        |       75.3        |
-|   sam2_hiera_small   |      46      | 43.3 (53.0 compiled\*) |        74.9         |        71.5        |       76.4        |
-| sam2_hiera_base_plus |     80.8     | 34.8 (43.8 compiled\*) |        74.7         |        72.8        |       75.8        |
-|   sam2_hiera_large   |    224.4     | 24.2 (30.2 compiled\*) |        76.0         |        74.6        |       79.8        |
-
-\* Compile the model by setting `compile_image_encoder: True` in the config.
-
-## Segment Anything Video Dataset
-
-See [sav_dataset/README.md](sav_dataset/README.md) for details.
-
-## License
-
-The models are licensed under the [Apache 2.0 license](./LICENSE). Please refer to our research paper for more details on the models.
-
-## Contributing
-
-See [contributing](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUCT.md).
-
-## Contributors
-
-The SAM 2 project was made possible with the help of many contributors (alphabetical):
-
-Karen Bergan, Daniel Bolya, Alex Bosenberg, Kai Brown, Vispi Cassod, Christopher Chedeau, Ida Cheng, Luc Dahlin, Shoubhik Debnath, Rene Martinez Doehner, Grant Gardner, Sahir Gomez, Rishi Godugu, Baishan Guo, Caleb Ho, Andrew Huang, Somya Jain, Bob Kamma, Amanda Kallet, Jake Kinney, Alexander Kirillov, Shiva Koduvayur, Devansh Kukreja, Robert Kuo, Aohan Lin, Parth Malani, Jitendra Malik, Mallika Malhotra, Miguel Martin, Alexander Miller, Sasha Mitts, William Ngan, George Orlin, Joelle Pineau, Kate Saenko, Rodrick Shepard, Azita Shokrpour, David Soofian, Jonathan Torres, Jenny Truong, Sagar Vaze, Meng Wang, Claudette Ward, Pengchuan Zhang.
-
-Third-party code: we use a GPU-based connected component algorithm adapted from [`cc_torch`](https://github.com/zsef123/Connected_components_PyTorch) (with its license in [`LICENSE_cctorch`](./LICENSE_cctorch)) as an optional post-processing step for the mask predictions.
-
-## Citing SAM 2
-
-If you use SAM 2 or the SA-V dataset in your research, please use the following BibTeX entry.
-
-```bibtex
-@article{ravi2024sam2,
-  title={SAM 2: Segment Anything in Images and Videos},
-  author={Ravi, Nikhila and Gabeur, Valentin and Hu, Yuan-Ting and Hu, Ronghang and Ryali, Chaitanya and Ma, Tengyu and Khedr, Haitham and R{\"a}dle, Roman and Rolland, Chloe and Gustafson, Laura and Mintun, Eric and Pan, Junting and Alwala, Kalyan Vasudev and Carion, Nicolas and Wu, Chao-Yuan and Girshick, Ross and Doll{\'a}r, Piotr and Feichtenhofer, Christoph},
-  journal={arXiv preprint arXiv:2408.00714},
-  url={https://arxiv.org/abs/2408.00714},
-  year={2024}
-}
+After constructing the data, to avoid copy-paste issue in the constructed videos, please run our data augmentation code for the reference image
+```sh
+. data_augmentation.sh
 ```

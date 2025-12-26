@@ -1,0 +1,187 @@
+===== TP DEBUG DUMP (rank0) =====
+world_size=8
+dump_path=/genai/fsx-project/yuanhaoc/Open-OmniVCus/DiffSynth-Studio/tp_debug_dump_rank0.txt
+torch_version=2.9.1+cu128
+
+===== MODULE REPR (blocks[0]) =====
+blocks[0] type: <class 'diffsynth.models.wan_video_dit.DiTBlock'>
+
+--- blocks[0].self_attn repr ---
+SelfAttention(
+  (q): Linear(in_features=1536, out_features=1536, bias=True)
+  (k): Linear(in_features=1536, out_features=1536, bias=True)
+  (v): Linear(in_features=1536, out_features=1536, bias=True)
+  (o): Linear(in_features=1536, out_features=1536, bias=True)
+  (norm_q): RMSNorm()
+  (norm_k): RMSNorm()
+  (attn): AttentionModule()
+)
+
+--- blocks[0].cross_attn repr ---
+CrossAttention(
+  (q): Linear(in_features=1536, out_features=1536, bias=True)
+  (k): Linear(in_features=1536, out_features=1536, bias=True)
+  (v): Linear(in_features=1536, out_features=1536, bias=True)
+  (o): Linear(in_features=1536, out_features=1536, bias=True)
+  (norm_q): RMSNorm()
+  (norm_k): RMSNorm()
+  (attn): AttentionModule()
+)
+
+--- self_attn children ---
+self_attn.q: <class 'torch.nn.modules.linear.Linear'>
+self_attn.k: <class 'torch.nn.modules.linear.Linear'>
+self_attn.v: <class 'torch.nn.modules.linear.Linear'>
+self_attn.o: <class 'torch.nn.modules.linear.Linear'>
+self_attn.norm_q: <class 'diffsynth.models.wan_video_dit.RMSNorm'>
+self_attn.norm_k: <class 'diffsynth.models.wan_video_dit.RMSNorm'>
+self_attn.attn: <class 'diffsynth.models.wan_video_dit.AttentionModule'>
+
+--- cross_attn children ---
+cross_attn.q: <class 'torch.nn.modules.linear.Linear'>
+cross_attn.k: <class 'torch.nn.modules.linear.Linear'>
+cross_attn.v: <class 'torch.nn.modules.linear.Linear'>
+cross_attn.o: <class 'torch.nn.modules.linear.Linear'>
+cross_attn.norm_q: <class 'diffsynth.models.wan_video_dit.RMSNorm'>
+cross_attn.norm_k: <class 'diffsynth.models.wan_video_dit.RMSNorm'>
+cross_attn.attn: <class 'diffsynth.models.wan_video_dit.AttentionModule'>
+
+===== FORWARD HOOK: blocks[0].self_attn.q =====
+[inp[0]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[out] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+
+===== FORWARD HOOK: blocks[0].self_attn.k =====
+[inp[0]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[out] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+
+===== FORWARD HOOK: blocks[0].self_attn.v =====
+[inp[0]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[out] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+
+===== FORWARD HOOK: blocks[0].self_attn.attn =====
+[inp[0]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[inp[1]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[inp[2]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[out] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+
+===== FORWARD HOOK: blocks[0].self_attn.o =====
+[inp[0]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[out] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+
+===== FORWARD HOOK: blocks[0].cross_attn.q =====
+[inp[0]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[out] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+
+===== FORWARD HOOK: blocks[0].cross_attn.k =====
+[inp[0]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 512, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[out] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 512, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+
+===== FORWARD HOOK: blocks[0].cross_attn.v =====
+[inp[0]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 512, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[out] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 512, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+
+===== FORWARD HOOK: blocks[0].cross_attn.attn =====
+[inp[0]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[inp[1]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 512, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[inp[2]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 512, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[out] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+
+===== FORWARD HOOK: blocks[0].cross_attn.o =====
+[inp[0]] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)
+[out] type=<class 'torch.distributed.tensor.DTensor'>
+  shape=(1, 34320, 1536) dtype=torch.bfloat16 device=cuda:0
+  (DTensor-like)
+  device_mesh=DeviceMesh((tensor_parallel=8), device: 'cuda', stride: (1,))
+  placements=(Shard(dim=1),)

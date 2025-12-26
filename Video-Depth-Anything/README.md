@@ -1,36 +1,30 @@
+&nbsp;
+
 <div align="center">
-<h1>Video Depth Anything</h1>
-  
-[**Sili Chen**](https://github.com/SiliChen321) · [**Hengkai Guo**](https://guohengkai.github.io/)<sup>&dagger;</sup> · [**Shengnan Zhu**](https://github.com/Shengnan-Zhu)  · [**Feihu Zhang**](https://github.com/zhizunhu)
-<br>
-[**Zilong Huang**](http://speedinghzl.github.io/)   ·  [**Jiashi Feng**](https://scholar.google.com.sg/citations?user=Q8iay0gAAAAJ&hl=en)   ·  [**Bingyi Kang**](https://bingykang.github.io/)<sup>&dagger;</sup> 
-<br>
-ByteDance
-<br>
-&dagger;Corresponding author
 
-<a href="https://arxiv.org/abs/2501.12375"><img src='https://img.shields.io/badge/arXiv-Video Depth Anything-red' alt='Paper PDF'></a>
-<a href='https://videodepthanything.github.io'><img src='https://img.shields.io/badge/Project_Page-Video Depth Anything-green' alt='Project Page'></a>
-<a href='https://huggingface.co/spaces/depth-anything/Video-Depth-Anything'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demo-blue'></a>
+<p align="center"> <img src="../img/logo.png" width="250px"> </p>
+
+[![arXiv](https://img.shields.io/badge/paper-arxiv-179bd3)](https://arxiv.org/abs/2411.14384)
+[![project](https://img.shields.io/badge/project-page-green)](https://caiyuanhao1998.github.io/project/OmniVCus/)
+[![hf](https://img.shields.io/badge/hugging-face-green)](https://huggingface.co/datasets/CaiYuanhao/OmniVCus)
+<h3>OmniVCus: Feedforward Subject-driven Video <br> Customization with Multimodal Control Conditions</h3> 
+
+<p align="center">
+  <img src="../img/demo_1.png" width="45%" alt="1">
+  <img src="../img/demo_2.png" width="45%" alt="2">
+  <img src="../img/demo_1.gif" width="45%" alt="1">
+  <img src="../img/demo_2.gif" width="45%" alt="2">
+</p>
+
+
+&nbsp;
+
 </div>
 
-</div>
-
-This work presents **Video Depth Anything** based on [Depth Anything V2](https://github.com/DepthAnything/Depth-Anything-V2), which can be applied to arbitrarily long videos without compromising quality, consistency, or generalization ability. Compared with other diffusion-based models, it enjoys faster inference speed, fewer parameters, and higher consistent depth accuracy.
-
-![teaser](assets/teaser_video_v2.png)
-
-## News
-- **2025-01-21:** Paper, project page, code, models, and demo are all released.
 
 
-## Pre-trained Models
-We provide **two models** of varying scales for robust and consistent video depth estimation:
-
-| Model | Params | Checkpoint |
-|:-|-:|:-:|
-| Video-Depth-Anything-V2-Small | 28.4M | [Download](https://huggingface.co/depth-anything/Video-Depth-Anything-Small/resolve/main/video_depth_anything_vits.pth?download=true) |
-| Video-Depth-Anything-V2-Large | 381.8M | [Download](https://huggingface.co/depth-anything/Video-Depth-Anything-Large/resolve/main/video_depth_anything_vitl.pth?download=true) |
+### Introduction
+This part of code implements the video depth control condition construction. If you find our repo useful, please give it a star ⭐ and consider citing our paper. Thank you :)
 
 
 ## Usage
@@ -38,8 +32,7 @@ We provide **two models** of varying scales for robust and consistent video dept
 ### Preparation
 
 ```bash
-git clone https://github.com/DepthAnything/Video-Depth-Anything
-cd Video-Depth-Anything
+conda activate videocus_factory
 pip install -r requirements.txt
 ```
 

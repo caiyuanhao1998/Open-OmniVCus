@@ -1,1 +1,0 @@
-aws s3 sync /mnt/localssd/yuanhaoc/ s3://cis-intern-2024/yuanhao_cai/VideoEdit/label/
