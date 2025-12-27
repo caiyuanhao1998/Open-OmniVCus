@@ -50,13 +50,13 @@ Using our data construction pipeline can generate training data pairs and contro
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="img/video_data.gif" width="300">
+      <img src="img/video_data.gif" width="320">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="img/entity.png" width="300">
+      <img src="img/entity.png" width="320">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="img/aug_entity.png"  width="300">
+      <img src="img/aug_entity.png"  width="320">
     </td>
   </tr>
 
@@ -68,13 +68,13 @@ Using our data construction pipeline can generate training data pairs and contro
 
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="img/depth.gif" width="300">
+      <img src="img/depth.gif" width="320">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="img/mask.gif" width="300">
+      <img src="img/mask.gif" width="320">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="img/flow.gif" width="300">
+      <img src="img/flow.gif" width="320">
     </td>
   </tr>
 
