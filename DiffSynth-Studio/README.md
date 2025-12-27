@@ -101,10 +101,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/26.png" width="400">
+      <img src="gif_demo/1.3B/26.png" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/26_depth.gif" width="400">
+      <img src="gif_demo/1.3B/26_depth.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -113,10 +113,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/26.gif" width="400">
+      <img src="gif_demo/1.3B/26.gif" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/26_our.gif" width="400">
+      <img src="gif_demo/1.3B/26_our.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -133,10 +133,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/32.png" width="400">
+      <img src="gif_demo/1.3B/32.png" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/32_mask.gif" width="400">
+      <img src="gif_demo/1.3B/32_mask.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -145,10 +145,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/32.gif" width="400">
+      <img src="gif_demo/1.3B/32.gif" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/32_our.gif" width="400">
+      <img src="gif_demo/1.3B/32_our.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -185,10 +185,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/33.png" width="400">
+      <img src="gif_demo/14B_2.1/33.png" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/33_depth.gif" width="400">
+      <img src="gif_demo/14B_2.1/33_depth.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -197,10 +197,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/33.gif" width="400">
+      <img src="gif_demo/14B_2.1/33.gif" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/33_our.gif" width="400">
+      <img src="gif_demo/14B_2.1/33_our.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -217,10 +217,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/65.png" width="400">
+      <img src="gif_demo/14B_2.1/65.png" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/65_mask.gif" width="400">
+      <img src="gif_demo/14B_2.1/65_mask.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -229,10 +229,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/65.gif" width="400">
+      <img src="gif_demo/14B_2.1/65.gif" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/65_our.gif" width="400">
+      <img src="gif_demo/14B_2.1/65_our.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -267,10 +267,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/27.png" width="400">
+      <img src="gif_demo/14B_2.2/27.png" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/27_depth.gif" width="400">
+      <img src="gif_demo/14B_2.2/27_depth.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -279,10 +279,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/27.gif" width="400">
+      <img src="gif_demo/14B_2.2/27.gif" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/27_our.gif" width="400">
+      <img src="gif_demo/14B_2.2/27_our.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -299,10 +299,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/54.png" width="400">
+      <img src="gif_demo/14B_2.2/54.png" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/54_mask.gif" width="400">
+      <img src="gif_demo/14B_2.2/54_mask.gif" width="500">
     </td>
   </tr>
   <tr>
@@ -311,10 +311,10 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/54.gif" width="400">
+      <img src="gif_demo/14B_2.2/54.gif" width="500">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/54_our.gif" width="400">
+      <img src="gif_demo/14B_2.2/54_our.gif" width="500">
     </td>
   </tr>
   <tr>
