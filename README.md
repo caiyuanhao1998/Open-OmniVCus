@@ -31,11 +31,12 @@ This is a re-implementation of our work "OmniVCus: Feedforward Subject-driven Vi
   <img src="img/method_framework.png" alt="pipeline" width="900">
 </p>
 
-<p align="center"><strong>Figure 2:</strong> The overall framework of our OmniVCus</p>
+<p align="center">The overall framework of our OmniVCus</p>
 
 
 
 ### News
+- **2025.12.26 :** Training and testing codes, training data, and pre-trained models have been released. Please feel free to check and try. 🚀
 - **2025.12.03 :** The data construction code has been uploaded. I will continue refine and construct this repo. Stay tuned. 💫
 - **2025.09.19 :** Our paper has been accepted by NeurIPS 2025. 🎉 🎊
 - **2025.06.30 :** Our paper is on [arxiv](https://arxiv.org/abs/2411.14384) now. 🚀
@@ -49,14 +50,41 @@ This is a re-implementation of our work "OmniVCus: Feedforward Subject-driven Vi
 
 &nbsp;
 
-<p align="center"> Prompt: The woman in <span style="color: green;">IMG1</span> is talking to a man on a street </p> 
+<p align="center">
+<table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:0;">
 
-<img src="img/compare_img.png" width=400px>
-<img src="img/compare_wan.gif" width=400px>
-<img src="img/compare_skyreel.gif" width=400px>
-<img src="img/compare_ours.gif" width=400px>
-
-<p align="center">Top-left: Input Image. Top-right: SkyReels-A2. Bottom-left: OmniGen + Wan2.1-I2V. Bottom-right: Ours. </p> 
+  <!-- ===== Row 1 Prompt ===== -->
+  <tr>
+    <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
+      Prompt: The woman in <span style="color: green;">IMG1</span> is talking to a man on a street
+    </td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="img/compare_img.png" width=400px>
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="img/compare_wan.gif" width=400px>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Reference Image</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">SkyReels-A2</td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="img/compare_skyreel.gif" width=400px>
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="img/compare_ours.gif" width=400px>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniGen + Wan2.1-I2V-14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus (Ours) - Felix2-5B</td>
+  </tr>
+</table>
+</p>
 
 </details>
 
@@ -74,10 +102,11 @@ This is a re-implementation of our work "OmniVCus: Feedforward Subject-driven Vi
 <details open>
 <summary><b>To-Do List:</b></summary>
 
-* [x] Release training and testing data samples
-* [x] Release the code of our data construction pipeline (VideoCus-Factory)
-* [ ] Re-implement inference code and models based on open-source repo
-* [ ] Re-implement training code based on open-source repo
+* [x] ~~Release training data and testing data samples~~
+* [x] ~~Release the code of our data construction pipeline(VideoCus-Factory)~~
+* [x] ~~Re-implement inference code and models based on open-source repo~~
+* [x] ~~Re-implement training code based on open-source repo~~
+* [x] ~~Release Training Data~~
 
 
 
@@ -86,63 +115,382 @@ This is a re-implementation of our work "OmniVCus: Feedforward Subject-driven Vi
 &nbsp;
 &nbsp;
 
-## 1. Data Construction Pipeline
+## 1. Data Construction
 
-We provide parts of our training and testing dataset samples in [Google Drive](https://drive.google.com/drive/folders/1SFlPN053A_DCFBGKVI-5NJtKedkVp1fJ?usp=drive_link) for your convienience to have a quick look and debug. We also condstruct webpages in the [Google Drive](https://drive.google.com/drive/folders/1SFlPN053A_DCFBGKVI-5NJtKedkVp1fJ?usp=drive_link) for your convienience to browse the data samples as
+We implement our data construction pipeline in the folder [`VideoCus-Factory`](https://github.com/caiyuanhao1998/Open-OmniVCus/tree/master/VideoCus-Factory), which can construct the multi-modal control conditions including subjects, depth, mask, motion, etc. We also provide the code in the folder [`Video-Depth-Anything`](https://github.com/caiyuanhao1998/Open-OmniVCus/tree/master/Video-Depth-Anything) for better constructing the video depth condition. Please enter the corresponding subfolders for environment installation and data preparation. The following is an example of constructing from a raw video.
+
+<p align="center">
+<table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:0;">
+
+  <!-- ===== Row 1 Prompt ===== -->
+  <tr>
+    <td colspan="3" align="center" style="border:0;padding:6px 10px;font-style:italic;">
+      Generated Prompt: a woman and a child playing with a toy train.
+    </td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="VideoCus-Factory/img/video_data.gif" width="250" height="140">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="VideoCus-Factory/img/entity.png" width="250" height="140">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="VideoCus-Factory/img/aug_entity.png"  width="250" height="140">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Original Video</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Segmented Subject</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Augmented Subject</td>
+  </tr>
+
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="VideoCus-Factory/img/depth.gif" width="250" height="140">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="VideoCus-Factory/img/mask.gif" width="250" height="140">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="VideoCus-Factory/img/flow.gif" width="250" height="140">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Depth Video</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Mask Video</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Motion Video</td>
+  </tr>
+
+</table>
+</p>
+
+
+For your convenience to do research, we provide our training and testing datasets in our huggingface pages: [[Train Set](https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train)], [Test Set]
+
+In addition, we also provide parts of the original training and testing dataset samples in [Google Drive](https://drive.google.com/drive/folders/1SFlPN053A_DCFBGKVI-5NJtKedkVp1fJ?usp=drive_link). We  condstruct webpages in the [Google Drive](https://drive.google.com/drive/folders/1SFlPN053A_DCFBGKVI-5NJtKedkVp1fJ?usp=drive_link) for your convienience to browse the data samples as
 
 <p align="center">
   <img src="img/webpage_example.png" alt="pipeline" width="900">
 </p>
 
-### 1.1 Install Environment and Download Pre-trained Models
 
-Our code in the folder `VideoCus-Factory` supports to construct the multi-modal conditions including subjects, depth, mask, etc. We also find the code of `Video-Depth-Anything` better for constructing the video depth condition. Please enter the corresponding subfolders and install the environment according to their readme files.
-```sh
-# For other conditions (subject / mask / motion / depth) construction
-cd VideoCus-Factory
-
-# For better video depth condition construction
-cd Video-Depth-Anything
-```
+&nbsp;
 
 
-### 1.2 Video Condition Construction
-In the folder `VideoCus-Factory`, please execute the following `.sh` scripts to construct different video conditions for different customization tasks.
-```sh
-# (1) Single- / Multi-Subject Video Customization
-. process_data_s3_customization.sh
+## 2. Training and Inference
 
-# (2) Depth-control Video Customization
-. process_data_s3_depth.sh
+We re-implement our method in the folder [`DiffSynth-Studio`](https://github.com/caiyuanhao1998/Open-OmniVCus/tree/master/DiffSynth-Studio) based on `Wan2.1-1.3B`, `Wan2.1-14B`, `Wan2.2-14B`, and `VACE` models. We provide our trained models in the [huggingface website](https://huggingface.co/CaiYuanhao/OmniVCus). I write tensor-parallel testing and training code as follow.
 
-# (3) Mask-control Video Customization
-. process_data_s3_seg_perframe.sh
+· Model Overview
 
-# (4) Motion-control Video Customization
-. process_data_s3_track.sh
-```
+<table width="100%" style="table-layout: fixed;">
+  <thead>
+    <tr>
+      <th style="width:40%; text-align:left;">Model ID</th>
+      <th style="width:30%; text-align:center;">Inference</th>
+      <th style="width:30%; text-align:center;">Training</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <a href="https://huggingface.co/CaiYuanhao/OmniVCus">
+          Wan2.1-OmniVCus-1.3B
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/caiyuanhao1998/Open-OmniVCus/blob/master/DiffSynth-Studio/test_2.1_1.3B.sh">
+          code
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/caiyuanhao1998/Open-OmniVCus/blob/master/DiffSynth-Studio/train_2.1_1.3B.sh">
+          code
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://huggingface.co/CaiYuanhao/OmniVCus">
+          Wan2.1-OmniVCus-14B
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/caiyuanhao1998/Open-OmniVCus/blob/master/DiffSynth-Studio/test_2.1_14B.sh">
+          code
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/caiyuanhao1998/Open-OmniVCus/blob/master/DiffSynth-Studio/train_2.1_14B.sh">
+          code
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://huggingface.co/CaiYuanhao/OmniVCus">
+          Wan2.2-OmniVCus-14B-high
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/caiyuanhao1998/Open-OmniVCus/blob/master/DiffSynth-Studio/test_2.2_14B.sh">
+          code
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/caiyuanhao1998/Open-OmniVCus/blob/master/DiffSynth-Studio/train_2.2_14B_high.sh">
+          code
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://huggingface.co/CaiYuanhao/OmniVCus">
+          Wan2.2-OmniVCus-14B-low
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/caiyuanhao1998/Open-OmniVCus/blob/master/DiffSynth-Studio/test_2.2_14B.sh">
+          code
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/caiyuanhao1998/Open-OmniVCus/blob/master/DiffSynth-Studio/train_2.2_14B_low.sh">
+          code
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-If you prefer to use better foundation model to construct the video depth condition. Please execute the following script in the `Video-Depth-Anything` folder as
-```sh
-. process_data_s3_vdepth.sh
-```
+
+We compare our OmniVCus with the state-of-the-art method VACE as follow:
+
+· (a) 2.1-1.3B model
+
+<p align="center">
+<table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:0;">
+
+  <!-- ===== Row 1 Prompt ===== -->
+  <tr>
+    <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
+      (a1) a woman rolling up a fitted sheet
+    </td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/1.3B/26.png" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/1.3B/26_depth.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Reference Image</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Depth Video</td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/1.3B/26.gif" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/1.3B/26_our.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.1-1.3B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.1-1.3B (Ours)</td>
+  </tr>
 
 
-## 2. Inference
+<!-- ===== Row 2 Prompt ===== -->
+  <tr>
+    <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
+      (a2) a church in the winter
+    </td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/1.3B/32.png" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/1.3B/32_mask.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Reference Image</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Mask Video</td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/1.3B/32.gif" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/1.3B/32_our.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.1-1.3B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.1-1.3B</td>
+  </tr>
+</table>
+</p>
 
-To do.
 
 
-## 3. Training
+· (b) 2.1-14B model
 
-To do.
+<p align="center">
+<table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:0;">
+
+  <!-- ===== Row 1 Prompt ===== -->
+  <tr>
+    <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
+      (b1) a man holding a piece of paper in his hands
+    </td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.1/33.png" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.1/33_depth.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Reference Image</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Depth Video</td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.1/33.gif" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.1/33_our.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.1-14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.1-14B (Ours)</td>
+  </tr>
 
 
+<!-- ===== Row 2 Prompt ===== -->
+  <tr>
+    <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
+      (b2) a boy in a medical gown and hairnet in a hospital room
+    </td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.1/65.png" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.1/65_mask.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Reference Image</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Mask Video</td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.1/65.gif" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.1/65_our.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.1-14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.1-14B (Ours)</td>
+  </tr>
+</table>
+</p>
+
+
+
+· (c) 2.2-14B model
+
+<p align="center">
+<table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:0;">
+
+  <!-- ===== Row 1 Prompt ===== -->
+  <tr>
+    <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
+      (c1) a boy looking into an open refrigerator, with tomatoes and a bottle of water on the floor
+    </td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.2/27.png" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.2/27_depth.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Reference Image</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Depth Video</td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.2/27.gif" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.2/27_our.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.2-14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.2-14B (Ours)</td>
+  </tr>
+
+
+<!-- ===== Row 2 Prompt ===== -->
+  <tr>
+    <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
+      (c2) a woman standing in a room
+    </td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.2/54.png" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.2/54_mask.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Reference Image</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Mask Video</td>
+  </tr>
+  <tr>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.2/54.gif" width="400">
+    </td>
+    <td style="border:0;padding:10px;">
+      <img src="DiffSynth-Studio/gif_demo/14B_2.2/54_our.gif" width="400">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.2-14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.2-14B (Ours)</td>
+  </tr>
+</table>
+</p>
+
+
+
+Please enter the subfolder [`DiffSynth-Studio`](https://github.com/caiyuanhao1998/Open-OmniVCus/tree/master/DiffSynth-Studio) for detailed instruction to train and test the models.
 
 
 &nbsp;
 
-## Citation
+## 3. Citation
 ```sh
 @inproceedings{omnivcus,
   title={OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions},
@@ -151,3 +499,6 @@ To do.
   year={2025}
 }
 ```
+&nbsp;
+
+`Acknowledgments:` Our code is built upon and inspired by [Wan2.1](https://github.com/Wan-Video/Wan2.1), [Wan2.2](https://github.com/Wan-Video/Wan2.2), [VACE](https://github.com/ali-vilab/VACE), [DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio), [SAM2](https://github.com/facebookresearch/sam2), [Depth-Anything-V2](https://github.com/DepthAnything/Depth-Anything-V2), [Video-Depth-Anything](https://github.com/DepthAnything/Video-Depth-Anything), [CoTracker3](https://github.com/facebookresearch/co-tracker). We thank their solid open-source work.

@@ -50,13 +50,13 @@ Using our data construction pipeline can generate training data pairs and contro
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="img/video_data.gif" width="250" height="140">
+      <img src="img/video_data.gif" width="300">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="img/entity.png" width="250" height="140">
+      <img src="img/entity.png" width="300">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="img/aug_entity.png"  width="250" height="140">
+      <img src="img/aug_entity.png"  width="300">
     </td>
   </tr>
 
@@ -104,6 +104,8 @@ pip install imageio[ffmpeg]
 
 pip install opencv-python
 ```
+
+&nbsp;
 
 ## 2. Data Preparation
 We suggest you download the VidGen-1M as the original text-video data pool.
@@ -162,24 +164,42 @@ with the following folder structure
 ```
 
 
-Download our json file
+Download our processed data from the [huggingface website](https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train) as
 
 ```sh
 git clone https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train
 ```
 
-Also place it into the path `T2V_data`
+Then place our data into the folder `T2V_data` with the following structure as
+
 ```sh
 |--T2V_data
-  |--vidgen_filter_gemini_part_0.json
-  |--vidgen_filter_gemini_part_1.json
-  |--vidgen_filter_gemini_part_2.json
-  |--vidgen_filter_gemini_part_3.json
-  |--vidgen_filter_gemini_part_4.json
-  |--vidgen_filter_gemini_part_5.json
-  |--vidgen_filter_gemini_part_6.json
-  |--vidgen_filter_gemini_part_7.json
+  |--json_files
+    |--part_0.json
+    |--...
+    |--part_7.json
+  |--label
+    |--part_0
+    |--...
+    |--part_7
+  |--train_csv
+    |--part_0_aug_depth.csv
+    |--part_0_aug_mask.csv
+    |--part_0_aug.csv
+    |--part_0.csv
+    |--...
+    |--part_7_aug_depth.csv
+    |--part_7_aug_mask.csv
+    |--part_7_aug.csv
+    |--part_7.csv
+    |--part_all_aug_depth.csv
+    |--part_all_aug_mask.csv
+    |--part_all_aug.csv
+    |--part_all.csv
 ```
+
+`Note:` The folder `json_files` is used for constructing multi-modal control conditions. The folder `label` is our processed data ready to use. 
+The folder `train_csv` contains the csv files used to train the T2V models.
 
 &nbsp;
 
@@ -204,11 +224,8 @@ huggingface-cli download microsoft/kosmos-2-patch14-224 --local-dir checkpoints/
 
 &nbsp;
 
-# 4. Construct Data
-We have provided 135K processed data. You can easily download them from our Huggingface Page or Google Drive
-```sh
-git clone https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train
-```
+## 4. Construct Multi-modal Control Conditions
+We have provided 135K processed data in the folder `T2V_data/label`. They are ready to use for training with the csv files in the folder `T2V_data/train_csv`. 
 If you want to construct the data your self, please run the following commonds to construct the corresponding control conditions
 ```sh
 # 1. referece image condition & mask condition
@@ -220,14 +237,40 @@ If you want to construct the data your self, please run the following commonds t
 # 3. motion condition
 . process_data_track.sh
 ```
-Please note that the depth condition here is predicted from the `Depth-Anything-2` model, which is worse than the `Video-Depth-Anything` model. Please enter the folder `Open-OmniVCus/Video-Depth-Anything` if you want to use the better model.
+Please note that the depth condition here is predicted from the `Depth-Anything-V2` model. Yet the `Video-Depth-Anything` model is more advanced. Please enter the folder [`Open-OmniVCus/Video-Depth-Anything`](https://github.com/caiyuanhao1998/Open-OmniVCus/tree/master/Video-Depth-Anything) if you want to use the better model.
 
 We also provide the code visualize the track in video, please run
+
 ```sh
 . track_vis.sh
 ```
 
+After constructing the data, you need to generate the csv file for training, run
+
+```sh
+python generate_csv_for_all_parts.py
+```
+
 After constructing the data, to avoid copy-paste issue in the constructed videos, please run our data augmentation code for the reference image
+
 ```sh
 . data_augmentation.sh
+```
+
+Then generate the csv training files for the augmented data
+
+```sh
+python convert_csv.py
+```
+
+&nbsp;
+
+## 5. Citation
+```sh
+@inproceedings{omnivcus,
+  title={OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions},
+  author={Yuanhao Cai and He Zhang and Xi Chen and Jinbo Xing and Kai Zhang and Yiwei Hu and Yuqian Zhou and Zhifei Zhang and Soo Ye Kim and Tianyu Wang and Yulun Zhang and Xiaokang Yang and Zhe Lin and Alan Yuille},
+  booktitle={NeurIPS},
+  year={2025}
+}
 ```

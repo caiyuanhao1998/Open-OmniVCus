@@ -44,10 +44,14 @@ pip install imageio[ffmpeg]
 
 Please refer to the folder `Open-OmniVCus/VideoCus-Factory/` for the details of preparing the data
 
+&nbsp;
+
 ## 2. Inference
 Our open-source implementation is based on `Wan` series methods and `VACE`. Please first download their official models by the auto-downloading of `DiffSynth-Studio` repo or from their huggingface websites. Then place these models as follow
 ```sh
 |--models
+  |--DiffSynth-Studio
+    |-- Wan-Series-Converted-Safetensors
   |--PAI
     |-- Wan2.2-VACE-Fun-A14B
   |--Wan-AI
@@ -55,24 +59,25 @@ Our open-source implementation is based on `Wan` series methods and `VACE`. Plea
     |-- Wan2.1-VACE-1.3B
     |-- Wan2.1-VACE-14B
 ```
-Then download our model from huggingface
+Then download our model from our huggingface website
 
+```sh
+git lfs install
+git clone https://huggingface.co/CaiYuanhao/OmniVCus
 ```
 
-```
-
-Place the models into the folder `models/pre-trained/` as
+Place the models into the folder `models` as
 
 ```sh
 |--models
-  |--pre-trained
+  |--OmniVCus
     |-- Wan2.1-OmniVCus-1.3B
     |-- Wan2.1-OmniVCus-14B
     |-- Wan2.2-OmniVCus-14B-high
     |-- Wan2.2-OmniVCus-14B-low
 ```
 
-We have provided several testing cases in the folder `data/examples/omnivcus`. We also write a tensor_parallel version code to speed up the model inference process. For your convienience to make a comparison with the state-of-the-art method `VACE`, you can directly run in tensor parallel as
+We have provided several testing cases in the folder `data/examples/omnivcus`. We also write a tensor-parallel version code to speed up the model inference process. For your convienience to make a comparison with the state-of-the-art method `VACE`, you can directly run in tensor parallel as
 
 · (a) 2.1-1.3B model
 
@@ -91,15 +96,15 @@ Then you will see the following comparison
   <!-- ===== Row 1 Prompt ===== -->
   <tr>
     <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
-      (1) a woman rolling up a fitted sheet
+      (a1) a woman rolling up a fitted sheet
     </td>
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/26.png" width="375" height="210">
+      <img src="gif_demo/1.3B/26.png" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/26_depth.gif" width="375" height="210">
+      <img src="gif_demo/1.3B/26_depth.gif" width="400">
     </td>
   </tr>
   <tr>
@@ -108,30 +113,30 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/26.gif" width="250" height="140">
+      <img src="gif_demo/1.3B/26.gif" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/26_our.gif" width="250" height="140">
+      <img src="gif_demo/1.3B/26_our.gif" width="400">
     </td>
   </tr>
   <tr>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE - 1.3B</td>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus (Ours) - 1.3B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.1-1.3B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.1-1.3B (Ours)</td>
   </tr>
 
 
 <!-- ===== Row 2 Prompt ===== -->
   <tr>
     <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
-      (2) a church in the winter
+      (a2) a church in the winter
     </td>
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/32.png" width="375" height="210">
+      <img src="gif_demo/1.3B/32.png" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/32_mask.gif" width="375" height="210">
+      <img src="gif_demo/1.3B/32_mask.gif" width="400">
     </td>
   </tr>
   <tr>
@@ -140,15 +145,15 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/32.gif" width="250" height="140">
+      <img src="gif_demo/1.3B/32.gif" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/1.3B/32_our.gif" width="250" height="140">
+      <img src="gif_demo/1.3B/32_our.gif" width="400">
     </td>
   </tr>
   <tr>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE - 1.3B</td>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus (Ours) - 1.3B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.1-1.3B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.1-1.3B</td>
   </tr>
 </table>
 </p>
@@ -175,15 +180,15 @@ Then you will see the following comparison
   <!-- ===== Row 1 Prompt ===== -->
   <tr>
     <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
-      (1) a man holding a piece of paper in his hands
+      (b1) a man holding a piece of paper in his hands
     </td>
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/33.png" width="375" height="210">
+      <img src="gif_demo/14B_2.1/33.png" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/33_depth.gif" width="375" height="210">
+      <img src="gif_demo/14B_2.1/33_depth.gif" width="400">
     </td>
   </tr>
   <tr>
@@ -192,30 +197,30 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/33.gif" width="250" height="140">
+      <img src="gif_demo/14B_2.1/33.gif" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/33_our.gif" width="250" height="140">
+      <img src="gif_demo/14B_2.1/33_our.gif" width="400">
     </td>
   </tr>
   <tr>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE - 1.3B</td>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus (Ours) - 1.3B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.1-14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.1-14B (Ours)</td>
   </tr>
 
 
 <!-- ===== Row 2 Prompt ===== -->
   <tr>
     <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
-      (2) a boy in a medical gown and hairnet in a hospital room
+      (b2) a boy in a medical gown and hairnet in a hospital room
     </td>
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/65.png" width="375" height="210">
+      <img src="gif_demo/14B_2.1/65.png" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/65_mask.gif" width="375" height="210">
+      <img src="gif_demo/14B_2.1/65_mask.gif" width="400">
     </td>
   </tr>
   <tr>
@@ -224,15 +229,15 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/65.gif" width="250" height="140">
+      <img src="gif_demo/14B_2.1/65.gif" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.1/65_our.gif" width="250" height="140">
+      <img src="gif_demo/14B_2.1/65_our.gif" width="400">
     </td>
   </tr>
   <tr>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE - 14B</td>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus (Ours) - 14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.1-14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.1-14B (Ours)</td>
   </tr>
 </table>
 </p>
@@ -257,15 +262,15 @@ Then you will see the following comparison
   <!-- ===== Row 1 Prompt ===== -->
   <tr>
     <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
-      (1) a boy looking into an open refrigerator, with tomatoes and a bottle of water on the floor
+      (c1) a boy looking into an open refrigerator, with tomatoes and a bottle of water on the floor
     </td>
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/27.png" width="375" height="210">
+      <img src="gif_demo/14B_2.2/27.png" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/27_depth.gif" width="375" height="210">
+      <img src="gif_demo/14B_2.2/27_depth.gif" width="400">
     </td>
   </tr>
   <tr>
@@ -274,30 +279,30 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/27.gif" width="250" height="140">
+      <img src="gif_demo/14B_2.2/27.gif" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/27_our.gif" width="250" height="140">
+      <img src="gif_demo/14B_2.2/27_our.gif" width="400">
     </td>
   </tr>
   <tr>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE - 1.3B</td>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus (Ours) - 1.3B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.2-14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.2-14B (Ours)</td>
   </tr>
 
 
 <!-- ===== Row 2 Prompt ===== -->
   <tr>
     <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
-      (2) a woman standing in a room
+      (c2) a woman standing in a room
     </td>
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/54.png" width="375" height="210">
+      <img src="gif_demo/14B_2.2/54.png" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/54_mask.gif" width="375" height="210">
+      <img src="gif_demo/14B_2.2/54_mask.gif" width="400">
     </td>
   </tr>
   <tr>
@@ -306,19 +311,20 @@ Then you will see the following comparison
   </tr>
   <tr>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/54.gif" width="250" height="140">
+      <img src="gif_demo/14B_2.2/54.gif" width="400">
     </td>
     <td style="border:0;padding:10px;">
-      <img src="gif_demo/14B_2.2/54_our.gif" width="250" height="140">
+      <img src="gif_demo/14B_2.2/54_our.gif" width="400">
     </td>
   </tr>
   <tr>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE - 14B</td>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus (Ours) - 14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">VACE-2.2-14B</td>
+    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus-2.2-14B (Ours)</td>
   </tr>
 </table>
 </p>
 
+&nbsp;
 
 ## 3. Training
 Before training, please refer to the folder `Open-OmniVCus/VideoCus-Factory` for detailed instruction to prepare the data into the folder `T2V_data` and `T2I_data`
@@ -334,13 +340,16 @@ Before training, please refer to the folder `Open-OmniVCus/VideoCus-Factory` for
 . train_2.2_14B_low.sh
 ```
 
-`Note:` The 2.2_14B version needs to train two models with high and low noise.
+`Note:` The 2.2-14B version needs to train two models with high and low noise.
 
+&nbsp;
 
 ## 4. Citation
 ```sh
-To do
+@inproceedings{omnivcus,
+  title={OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions},
+  author={Yuanhao Cai and He Zhang and Xi Chen and Jinbo Xing and Kai Zhang and Yiwei Hu and Yuqian Zhou and Zhifei Zhang and Soo Ye Kim and Tianyu Wang and Yulun Zhang and Xiaokang Yang and Zhe Lin and Alan Yuille},
+  booktitle={NeurIPS},
+  year={2025}
+}
 ```
-
-
-Acknowledgement: 

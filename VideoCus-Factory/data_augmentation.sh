@@ -1,5 +1,5 @@
 python data_augmentation.py \
-  --csv_path train_csv/vidgen_filter_gemini_part_0_all.csv \
+  --csv_path T2V_data/train_csv/part_0.csv \
   --ref_col vace_reference_image \
   --video_col vace_video \
   --random_bg_dir T2I_data/data_1024_10K/data_1024_10K/data_000000 \
