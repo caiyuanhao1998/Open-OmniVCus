@@ -4,8 +4,6 @@
 
 <p align="center"> <img src="img/logo.png" width="250px"> </p>
 
-<h4>OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4> 
-
 [![arXiv](https://img.shields.io/badge/arXiv%20paper-2506.23361-b31b1b.svg)](https://arxiv.org/abs/2506.23361)&nbsp;
 [![project page](https://img.shields.io/badge/Project_Page-Video_Results-green)](https://caiyuanhao1998.github.io/project/OmniVCus/)&nbsp;
 <a href="https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train">
@@ -18,6 +16,7 @@
   <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Model&color=yellow">
 </a>
 
+<h4>[NeurIPS 2025] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4> 
 
 <p align="center">
   <img src="img/demo_1.png" width="48%" alt="abo">
