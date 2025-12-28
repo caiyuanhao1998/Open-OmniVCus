@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Model&color=yellow">
 </a>
 
-<h4>[NeurIPS 2025] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4> 
+<h4>[NeurIPS 25] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4> 
 
 <p align="center">
   <img src="img/demo_1.png" width="48%" alt="abo">
