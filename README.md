@@ -20,10 +20,10 @@
 
 
 <p align="center">
-  <img src="img/demo_1.png" width="45%" alt="abo">
-  <img src="img/demo_2.png" width="45%" alt="gso">
-  <img src="img/demo_1.gif" width="45%" alt="flux_1">
-  <img src="img/demo_2.gif" width="45%" alt="green_man">
+  <img src="img/demo_1.png" width="48%" alt="abo">
+  <img src="img/demo_2.png" width="48%" alt="gso">
+  <img src="img/demo_1.gif" width="48%" alt="flux_1">
+  <img src="img/demo_2.gif" width="48%" alt="green_man">
 </p>
 
 
