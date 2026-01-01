@@ -4,10 +4,19 @@
 
 <p align="center"> <img src="../img/logo.png" width="250px"> </p>
 
-[![arXiv](https://img.shields.io/badge/paper-arxiv-179bd3)](https://arxiv.org/abs/2411.14384)
-[![project](https://img.shields.io/badge/project-page-green)](https://caiyuanhao1998.github.io/project/OmniVCus/)
-[![hf](https://img.shields.io/badge/hugging-face-green)](https://huggingface.co/datasets/CaiYuanhao/OmniVCus)
-<h3>OmniVCus: Feedforward Subject-driven Video <br> Customization with Multimodal Control Conditions</h3> 
+[![arXiv](https://img.shields.io/badge/arXiv%20paper-2506.23361-b31b1b.svg)](https://arxiv.org/abs/2506.23361)&nbsp;
+[![project page](https://img.shields.io/badge/Project_Page-Video_Results-green)](https://caiyuanhao1998.github.io/project/OmniVCus/)&nbsp;
+<a href="https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train">
+  <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Train%20Data&color=yellow">
+</a>
+<a href="https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Test">
+  <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Test%20Data&color=yellow">
+</a>
+<a href="https://huggingface.co/CaiYuanhao/OmniVCus">
+  <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Model&color=yellow">
+</a>
+
+<h4>[NIPS 25] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4>
 
 <p align="center">
   <img src="../img/demo_1.png" width="45%" alt="1">
@@ -47,7 +56,7 @@ Please refer to the folder `Open-OmniVCus/VideoCus-Factory/` for the details of 
 &nbsp;
 
 ## 2. Inference
-Our open-source implementation is based on `Wan` series methods and `VACE`. Please first download their official models by the auto-downloading of `DiffSynth-Studio` repo or from their huggingface websites. Then place these models as follow
+Our open-source implementation is based on `Wan` series methods and `VACE`. Please first download their official models by the auto-downloading of `DiffSynth-Studio` repo when you run our testing code or from their huggingface websites. Then place these models as follow
 ```sh
 |--models
   |--DiffSynth-Studio
@@ -77,7 +86,23 @@ Place the models into the folder `models` as
     |-- Wan2.2-OmniVCus-14B-low
 ```
 
-We have provided several testing cases in the folder `data/examples/omnivcus`. We also write a tensor-parallel version code to speed up the model inference process. For your convienience to make a comparison with the state-of-the-art method `VACE`, you can directly run in tensor parallel as
+We curated a testing dataset with hand written prompts. Please download our testing dataset from the huggingface website as
+
+```sh
+git clone https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Test
+```
+
+Then place the subfolders into the path `data/examples/omnivcus` as
+
+```sh
+|--data
+  |--examples
+    |--omnivcus
+      |-- depth
+      |-- mask
+```
+
+We also write a tensor-parallel version code to speed up the model inference process. For your convienience to make a comparison with the state-of-the-art method `VACE`, you can directly run in tensor parallel as
 
 · (a) 2.1-1.3B model
 
@@ -323,6 +348,13 @@ Then you will see the following comparison
   </tr>
 </table>
 </p>
+
+If you want to test the whole dataset, please go ahead by runing
+```sh
+. test_2.1_1.3B_all.sh
+. test_2.1_14B_all.sh
+. test_2.2_14B_all.sh
+```
 
 &nbsp;
 

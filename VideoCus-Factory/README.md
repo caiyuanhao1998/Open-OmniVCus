@@ -4,10 +4,19 @@
 
 <p align="center"> <img src="../img/logo.png" width="250px"> </p>
 
-[![arXiv](https://img.shields.io/badge/paper-arxiv-179bd3)](https://arxiv.org/abs/2411.14384)
-[![project](https://img.shields.io/badge/project-page-green)](https://caiyuanhao1998.github.io/project/OmniVCus/)
-[![hf](https://img.shields.io/badge/hugging-face-green)](https://huggingface.co/datasets/CaiYuanhao/OmniVCus)
-<h3>OmniVCus: Feedforward Subject-driven Video <br> Customization with Multimodal Control Conditions</h3> 
+[![arXiv](https://img.shields.io/badge/arXiv%20paper-2506.23361-b31b1b.svg)](https://arxiv.org/abs/2506.23361)&nbsp;
+[![project page](https://img.shields.io/badge/Project_Page-Video_Results-green)](https://caiyuanhao1998.github.io/project/OmniVCus/)&nbsp;
+<a href="https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train">
+  <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Train%20Data&color=yellow">
+</a>
+<a href="https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Test">
+  <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Test%20Data&color=yellow">
+</a>
+<a href="https://huggingface.co/CaiYuanhao/OmniVCus">
+  <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Model&color=yellow">
+</a>
+
+<h4>[NIPS 25] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4>
 
 <p align="center">
   <img src="../img/demo_1.png" width="45%" alt="1">
@@ -225,18 +234,40 @@ huggingface-cli download microsoft/kosmos-2-patch14-224 --local-dir checkpoints/
 &nbsp;
 
 ## 4. Construct Multi-modal Control Conditions
-We have provided 135K processed data in the folder `T2V_data/label`. They are ready to use for training with the csv files in the folder `T2V_data/train_csv`. 
-If you want to construct the data your self, please run the following commonds to construct the corresponding control conditions
+We have provided about 140K processed data in the folder `T2V_data/label`. They are ready to use for training with the csv files in the folder `T2V_data/train_csv`. 
+If you want to construct the data your self, please run the following commonds to construct the corresponding control conditions. We develop a data parallel version to speed up the data construction process, please use 8 x 8 GPUs for each condition construction as
 ```sh
 # 1. referece image condition & mask condition
-. process_data_customization.sh
+. process_data_customization.sh --part_id 0
+. process_data_customization.sh --part_id 1
+. process_data_customization.sh --part_id 2
+. process_data_customization.sh --part_id 3
+. process_data_customization.sh --part_id 4
+. process_data_customization.sh --part_id 5
+. process_data_customization.sh --part_id 6
+. process_data_customization.sh --part_id 7
 
 # 2. depth condition
-. process_data_depth.sh
+. process_data_depth.sh --part_id 0
+. process_data_depth.sh --part_id 1
+. process_data_depth.sh --part_id 2
+. process_data_depth.sh --part_id 3
+. process_data_depth.sh --part_id 4
+. process_data_depth.sh --part_id 5
+. process_data_depth.sh --part_id 6
+. process_data_depth.sh --part_id 7
 
 # 3. motion condition
-. process_data_track.sh
+. process_data_track.sh --part_id 0
+. process_data_track.sh --part_id 1
+. process_data_track.sh --part_id 2
+. process_data_track.sh --part_id 3
+. process_data_track.sh --part_id 4
+. process_data_track.sh --part_id 5
+. process_data_track.sh --part_id 6
+. process_data_track.sh --part_id 7
 ```
+
 Please note that the depth condition here is predicted from the `Depth-Anything-V2` model. Yet the `Video-Depth-Anything` model is more advanced. Please enter the folder [`Open-OmniVCus/Video-Depth-Anything`](https://github.com/caiyuanhao1998/Open-OmniVCus/tree/master/Video-Depth-Anything) if you want to use the better model.
 
 We also provide the code visualize the track in video, please run
@@ -254,13 +285,28 @@ python generate_csv_for_all_parts.py
 After constructing the data, to avoid copy-paste issue in the constructed videos, please run our data augmentation code for the reference image
 
 ```sh
-. data_augmentation.sh
+. data_augmentation.sh --part_id 0
+. data_augmentation.sh --part_id 1
+. data_augmentation.sh --part_id 2
+. data_augmentation.sh --part_id 3
+. data_augmentation.sh --part_id 4
+. data_augmentation.sh --part_id 5
+. data_augmentation.sh --part_id 6
+. data_augmentation.sh --part_id 7
 ```
 
 Then generate the csv training files for the augmented data
 
 ```sh
-python convert_csv.py
+python convert_csv.py --part_id 0
+python convert_csv.py --part_id 1
+python convert_csv.py --part_id 2
+python convert_csv.py --part_id 3
+python convert_csv.py --part_id 4
+python convert_csv.py --part_id 5
+python convert_csv.py --part_id 6
+python convert_csv.py --part_id 7
+python convert_csv.py --part_id all
 ```
 
 &nbsp;

@@ -63,6 +63,16 @@ torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/valida
   --seed 0
 
 
+# depth - 1.3B - all parts
+torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/validate_full/Wan2.1-VACE-1.3B_tensor_parallel_all.py \
+  --ckpt models/train/Wan2.1-VACE-1.3B_full_OmniVCus_part_all_mix/epoch-0.safetensors \
+  --test_dir data/examples/omnivcus/depth/ \
+  --num_frames 49 \
+  --out_dir results/OmniVCus_all_parts/depth/1.3B/ \
+  --seed 0
+
+
+
 # depth -- 14B -- only depth
 # Depth  -----  14B only depth
 torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/validate_full/Wan2.1-VACE-14B_tensor_parallel_all.py \
@@ -82,6 +92,17 @@ torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/valida
   --seed 0
 
 
+# depth - 14B - all parts
+torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/validate_full/Wan2.1-VACE-14B_tensor_parallel_all.py \
+  --ckpt models/train/Wan2.1-VACE-14B_full_OmniVCus_part_all_mix/epoch-0.safetensors \
+  --test_dir data/examples/omnivcus/depth/ \
+  --num_frames 49 \
+  --out_dir results/OmniVCus_all_parts/depth/14B/ \
+  --seed 0
+
+
+
+
 torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/validate_full/Wan2.1-VACE-14B_tensor_parallel_all_reverse.py \
   --ckpt models/train/Wan2.1-VACE-14B_full_OmniVCus_all/epoch-0.safetensors \
   --test_dir data/examples/omnivcus/depth/ \
@@ -99,10 +120,28 @@ torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/valida
   --seed 0
 
 
+# mask - 1.3B - all parts
+torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/validate_full/Wan2.1-VACE-1.3B_tensor_parallel_all.py \
+  --ckpt models/train/Wan2.1-VACE-1.3B_full_OmniVCus_part_all_mix/epoch-0.safetensors \
+  --test_dir data/examples/omnivcus/mask/ \
+  --num_frames 49 \
+  --out_dir results/OmniVCus_all_parts/mask/1.3B/ \
+  --seed 0
+
+
 # mask -- all_data -- 14B
 torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/validate_full/Wan2.1-VACE-14B_tensor_parallel_all.py \
   --ckpt models/train/Wan2.1-VACE-14B_full_OmniVCus_all/epoch-0.safetensors \
   --test_dir data/examples/omnivcus/mask/ \
   --num_frames 49 \
   --out_dir results/OmniVCus/mask/14B/ \
+  --seed 0
+
+
+# mask - 14B - all parts
+torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/validate_full/Wan2.1-VACE-14B_tensor_parallel_all.py \
+  --ckpt models/train/Wan2.1-VACE-14B_full_OmniVCus_part_all_mix/epoch-0.safetensors \
+  --test_dir data/examples/omnivcus/mask/ \
+  --num_frames 49 \
+  --out_dir results/OmniVCus_all_parts/mask/14B/ \
   --seed 0

@@ -13,10 +13,6 @@ ref_img_name = 'entity_40.png'
 ref_video_name = 'entity_40.mp4'
 mask_name = 'mask.png'
 
-'''
-...
-'''
-
 
 
 

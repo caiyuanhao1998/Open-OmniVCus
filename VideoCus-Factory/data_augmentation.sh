@@ -1,5 +1,20 @@
+#!/usr/bin/env bash
+
+# =========================
+# Argument parsing (only --part_id is supported)
+# =========================
+PART_ID=0
+
+# Override default part id if provided
+if [ "$1" = "--part_id" ]; then
+  PART_ID="$2"
+fi
+
+# =========================
+# Data augmentation
+# =========================
 python data_augmentation.py \
-  --csv_path T2V_data/train_csv/part_0.csv \
+  --csv_path T2V_data/train_csv/part_${PART_ID}.csv \
   --ref_col vace_reference_image \
   --video_col vace_video \
   --random_bg_dir T2I_data/data_1024_10K/data_1024_10K/data_000000 \
