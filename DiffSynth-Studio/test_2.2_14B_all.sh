@@ -4,7 +4,7 @@ torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/valida
   --ckpt_low  models/OmniVCus/Wan2.2-OmniVCus-14B-low/epoch-0.safetensors \
   --test_dir data/examples/omnivcus/depth/ \
   --num_frames 49 \
-  --out_dir results_video/OmniVCus/depth/2.2_14B/ \
+  --out_dir results_video/OmniVCus/depth/14B_2.2/ \
   --seed 0
 
 
@@ -14,5 +14,5 @@ torchrun --standalone --nproc_per_node=8 examples/wanvideo/model_training/valida
   --ckpt_low  models/OmniVCus/Wan2.2-OmniVCus-14B-low/epoch-0.safetensors \
   --test_dir data/examples/omnivcus/mask/ \
   --num_frames 49 \
-  --out_dir results_video/OmniVCus/mask/2.2_14B/ \
+  --out_dir results_video/OmniVCus/mask/14B_2.2/ \
   --seed 0

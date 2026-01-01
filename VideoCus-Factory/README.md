@@ -298,14 +298,9 @@ After constructing the data, to avoid copy-paste issue in the constructed videos
 Then generate the csv training files for the augmented data
 
 ```sh
-python convert_csv.py --part_id 0
-python convert_csv.py --part_id 1
-python convert_csv.py --part_id 2
-python convert_csv.py --part_id 3
-python convert_csv.py --part_id 4
-python convert_csv.py --part_id 5
-python convert_csv.py --part_id 6
-python convert_csv.py --part_id 7
+# python convert_csv.py --part_id 0
+# ...
+# python convert_csv.py --part_id 7
 python convert_csv.py --part_id all
 ```
 

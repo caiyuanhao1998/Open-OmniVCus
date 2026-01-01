@@ -352,7 +352,9 @@ Then you will see the following comparison
 If you want to test the whole dataset, please go ahead by runing
 ```sh
 . test_2.1_1.3B_all.sh
+
 . test_2.1_14B_all.sh
+
 . test_2.2_14B_all.sh
 ```
 
