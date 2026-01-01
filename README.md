@@ -25,12 +25,9 @@
   <img src="img/demo_2.gif" width="48%" alt="green_man">
 </p>
 
-
-&nbsp;
-
 </div>
 
-
+&nbsp;
 
 ### Introduction
 This is a re-implementation of our work "OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions" using public datasets and re-trained model based on public codes. In this work, we present a data construction pipeline that can create data pairs and a diffusion Transformer for subject-driven video customization under different control conditions. I will continue to complete this repo. If you find our repo useful, please give it a star ⭐ and consider citing our paper. Thank you :)
@@ -42,7 +39,7 @@ This is a re-implementation of our work "OmniVCus: Feedforward Subject-driven Vi
 
 <p align="center">The overall framework of our OmniVCus</p>
 
-
+&nbsp;
 
 ### News
 - **2025.12.26 :** Training and testing codes, training data, and pre-trained models have been released. Please feel free to check and try. 🚀
@@ -52,76 +49,7 @@ This is a re-implementation of our work "OmniVCus: Feedforward Subject-driven Vi
 - **2025.06.28 :** Our [project page](https://caiyuanhao1998.github.io/project/OmniVCus/) has been built up. Feel free to check the video generation results on the project page.
 
 
-### Comparison with State-of-the-Art Methods
 
-<details open>
-<summary><b>Qualitative Comparison</b></summary>
-
-&nbsp;
-
-<p align="center">
-<table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:0;">
-
-  <!-- ===== Row 1 Prompt ===== -->
-  <tr>
-    <td colspan="2" align="center" style="border:0;padding:6px 10px;font-style:italic;">
-      Prompt: The woman in <span style="color: green;">IMG1</span> is talking to a man on a street
-    </td>
-  </tr>
-  <tr>
-    <td style="border:0;padding:10px;">
-      <img src="img/compare_img.png" width=400px>
-    </td>
-    <td style="border:0;padding:10px;">
-      <img src="img/compare_wan.gif" width=400px>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">Reference Image</td>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">SkyReels-A2</td>
-  </tr>
-  <tr>
-    <td style="border:0;padding:10px;">
-      <img src="img/compare_skyreel.gif" width=400px>
-    </td>
-    <td style="border:0;padding:10px;">
-      <img src="img/compare_ours.gif" width=400px>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniGen + Wan2.1-I2V-14B</td>
-    <td align="center" style="border:0;padding-top:6px;font-weight:700;">OmniVCus (Ours) - Felix2-5B</td>
-  </tr>
-</table>
-</p>
-
-</details>
-
-&nbsp;
-
-<details close>
-<summary><b>Quantitative Comparison</b></summary>
-
-![results1](/img/quantitative_comparison.png)
-
-</details>
-
-&nbsp;
-
-<details open>
-<summary><b>To-Do List:</b></summary>
-
-* [x] ~~Release training data and testing data samples~~
-* [x] ~~Release the code of our data construction pipeline(VideoCus-Factory)~~
-* [x] ~~Re-implement inference code and models based on open-source repo~~
-* [x] ~~Re-implement training code based on open-source repo~~
-* [x] ~~Release Training Data~~
-
-
-
-</details>
-
-&nbsp;
 &nbsp;
 
 ## 1. Data Construction
