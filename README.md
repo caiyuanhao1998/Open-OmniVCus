@@ -105,9 +105,9 @@ We implement our data construction pipeline in the folder [`VideoCus-Factory`](h
 </p>
 
 
-For your convenience to do research, we provide our training and testing datasets in our huggingface pages: [[Train Set](https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train)], [Test Set]
+For your convenience to do research, we provide our training and testing datasets in our huggingface pages: [[Train Set](https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train)], [[Test Set](https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Test)]
 
-In addition, we also provide parts of the original training and testing dataset samples in [Google Drive](https://drive.google.com/drive/folders/1SFlPN053A_DCFBGKVI-5NJtKedkVp1fJ?usp=drive_link). We  condstruct webpages in the [Google Drive](https://drive.google.com/drive/folders/1SFlPN053A_DCFBGKVI-5NJtKedkVp1fJ?usp=drive_link) for your convienience to browse the data samples as
+In addition, we also provide parts of the original training and testing dataset samples in [Google Drive](https://drive.google.com/drive/folders/1SFlPN053A_DCFBGKVI-5NJtKedkVp1fJ?usp=drive_link). We  construct webpages in the [Google Drive](https://drive.google.com/drive/folders/1SFlPN053A_DCFBGKVI-5NJtKedkVp1fJ?usp=drive_link) for your convenience to browse the data samples as
 
 <p align="center">
   <img src="img/webpage_example.png" alt="pipeline" width="900">
