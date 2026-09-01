@@ -42,6 +42,7 @@ This is a re-implementation of our work "OmniVCus: Feedforward Subject-driven Vi
 &nbsp;
 
 ### News
+- **2026.09.01 :** We added a [minimal PyTorch DiT implementation](DiffSynth-Studio/examples/wanvideo/minimal_dit_le_tae.py) demonstrating Lottery Embedding (LE) and Temporally Aligned Embedding (TAE) for mask/depth and camera-pose controls. 🚀
 - **2025.12.26 :** Training and testing codes, training data, and pre-trained models have been released. Please feel free to check and try. 🚀
 - **2025.12.03 :** The data construction code has been uploaded. I will continue refine and construct this repo. Stay tuned. 💫
 - **2025.09.19 :** Our paper has been accepted by NeurIPS 2025. 🎉 🎊
