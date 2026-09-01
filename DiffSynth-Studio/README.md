@@ -53,22 +53,6 @@ pip install imageio[ffmpeg]
 
 Please refer to the folder `Open-OmniVCus/VideoCus-Factory/` for the details of preparing the data
 
-### Minimal DiT with LE and TAE
-
-[`examples/wanvideo/minimal_dit_le_tae.py`](examples/wanvideo/minimal_dit_le_tae.py)
-is a small, self-contained PyTorch implementation of a Diffusion Transformer
-with the Lottery Embedding (LE) and Temporally Aligned Embedding (TAE) described
-in our paper. It demonstrates both dense mask/depth control and camera-pose
-control using pixel-aligned Plucker rays. The example consumes patchified 1-D
-tokens and is intended as a readable reference, rather than a replacement for
-the full pretrained OmniVCus model.
-
-Run the included tests in the DiffSynth-Studio environment:
-
-```sh
-python examples/wanvideo/minimal_dit_le_tae.py
-```
-
 &nbsp;
 
 ## 2. Inference
@@ -394,7 +378,25 @@ Before training, please refer to the folder `Open-OmniVCus/VideoCus-Factory` for
 
 &nbsp;
 
-## 4. Citation
+## 4. Minimal DiT with LE and TAE
+
+[`examples/wanvideo/minimal_dit_le_tae.py`](examples/wanvideo/minimal_dit_le_tae.py)
+is a small, self-contained PyTorch implementation of a Diffusion Transformer
+with the Lottery Embedding (LE) and Temporally Aligned Embedding (TAE) described
+in our paper. It demonstrates both dense mask/depth control and camera-pose
+control using pixel-aligned Plucker rays. The example consumes patchified 1-D
+tokens and is intended as a readable reference, rather than a replacement for
+the full pretrained OmniVCus model.
+
+Run the included tests in the DiffSynth-Studio environment:
+
+```sh
+python examples/wanvideo/minimal_dit_le_tae.py
+```
+
+&nbsp;
+
+## 5. Citation
 ```sh
 @inproceedings{omnivcus,
   title={OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions},
