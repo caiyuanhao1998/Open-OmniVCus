@@ -18,6 +18,14 @@
 
 <h4>[NIPS 25] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4> 
 
+<p style="font-size: 20px;">
+  Applied in the post-training of
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Adobe_Corporate_Horizontal_Red_HEX.svg"
+      alt="Adobe"
+      style="height: 12px !important; width: auto !important; max-width: none !important; display: inline-block !important; vertical-align: middle;">
+  <strong>Adobe Firefly Video Foundation Model</strong>
+</p>
+
 <p align="center">
   <img src="img/demo_1.png" width="48%" alt="abo">
   <img src="img/demo_2.png" width="48%" alt="gso">
