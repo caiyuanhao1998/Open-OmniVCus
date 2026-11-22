@@ -12,7 +12,7 @@
 [![Hugging Face Model](https://img.shields.io/static/v1?label=%F0%9F%A4%97%20HF&message=Model&color=yellow)](https://huggingface.co/CaiYuanhao/OmniVCus)&nbsp;
 [![Online Demo](https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Online&message=Demo&color=yellow)](https://huggingface.co/spaces/CaiYuanhao/OmniVCus)&nbsp;
 
-<h4>[NIPS 25] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4>
+<h4>[NeurIPS 2025] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4>
 
 <p align="center">
   <img src="../img/demo_1.png" width="45%" alt="1">
