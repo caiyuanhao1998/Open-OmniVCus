@@ -4,8 +4,8 @@
 
 <p align="center"> <img src="img/logo.png" width="250px"> </p>
 
-[![arXiv](https://img.shields.io/badge/arXiv%20paper-2506.23361-b31b1b.svg)](https://arxiv.org/abs/2506.23361)&nbsp;
-[![project page](https://img.shields.io/badge/Project_Page-Video_Results-green)](https://caiyuanhao1998.github.io/project/OmniVCus/)&nbsp;
+[![arXiv](https://img.shields.io/badge/arXiv-paper-b31b1b.svg)](https://arxiv.org/abs/2506.23361)&nbsp;
+[![project page](https://img.shields.io/badge/project-page-green)](https://caiyuanhao1998.github.io/project/OmniVCus/)&nbsp;
 <a href="https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train">
   <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Train%20Data&color=yellow">
 </a>
@@ -14,6 +14,9 @@
 </a>
 <a href="https://huggingface.co/CaiYuanhao/OmniVCus">
   <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Model&color=yellow">
+</a>
+<a href="https://huggingface.co/spaces/CaiYuanhao/OmniVCus">
+  <img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Online&message=Demo&color=yellow">
 </a>
 
 <h4>[NIPS 25] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4> 
