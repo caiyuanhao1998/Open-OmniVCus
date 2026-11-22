@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="823" height="26" viewBox="0 0 823 26" role="img" aria-labelledby="title">
+  <title id="title">[NeurIPS 2025] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</title>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      text { fill: #f0f6fc; }
+    }
+  </style>
+  <!-- Edit font-size to adjust the title. textLength sets its width on one line. -->
+  <text x="411.5" y="13" text-anchor="middle" dominant-baseline="central"
+        fill="#1f2328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif"
+        font-size="14px" font-weight="600" textLength="813" lengthAdjust="spacingAndGlyphs">[NeurIPS 2025] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</text>
+</svg>
