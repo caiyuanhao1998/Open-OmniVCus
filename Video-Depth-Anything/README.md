@@ -12,7 +12,15 @@
 [![Hugging Face Model](https://img.shields.io/static/v1?label=%F0%9F%A4%97%20HF&message=Model&color=yellow)](https://huggingface.co/CaiYuanhao/OmniVCus)&nbsp;
 [![Online Demo](https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Online&message=Demo&color=yellow)](https://huggingface.co/spaces/CaiYuanhao/OmniVCus)&nbsp;
 
-<h3>OmniVCus: Feedforward Subject-driven Video <br> Customization with Multimodal Control Conditions</h3> 
+<h4>[NIPS 25] OmniVCus: Feedforward Subject-driven Video Customization with Multimodal Control Conditions</h4> 
+
+<p style="font-size: 20px;">
+  Applied in the post-training of
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Adobe_Corporate_Horizontal_Red_HEX.svg"
+      alt="Adobe"
+      style="height: 12px !important; width: auto !important; max-width: none !important; display: inline-block !important; vertical-align: middle;">
+  <strong>Adobe Firefly Video Foundation Model</strong>
+</p>
 
 <p align="center">
   <img src="../img/demo_1.png" width="45%" alt="1">
