@@ -6,7 +6,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-paper-b31b1b.svg)](https://arxiv.org/abs/2506.23361)&nbsp;
 [![project page](https://img.shields.io/badge/project-page-green)](https://caiyuanhao1998.github.io/project/OmniVCus/)&nbsp;
-[![知乎 - 解读](img/zhihu-interpretation.svg)](https://zhuanlan.zhihu.com/p/1988577914237785212)&nbsp;
+[![知乎 - 解读](../img/zhihu-interpretation.svg)](https://zhuanlan.zhihu.com/p/1988577914237785212)&nbsp;
 [![Hugging Face Train Data](https://img.shields.io/static/v1?label=%F0%9F%A4%97%20HF&message=Train%20Data&color=yellow)](https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Train)&nbsp;
 [![Hugging Face Test Data](https://img.shields.io/static/v1?label=%F0%9F%A4%97%20HF&message=Test%20Data&color=yellow)](https://huggingface.co/datasets/CaiYuanhao/OmniVCus-Test)&nbsp;
 [![Hugging Face Model](https://img.shields.io/static/v1?label=%F0%9F%A4%97%20HF&message=Model&color=yellow)](https://huggingface.co/CaiYuanhao/OmniVCus)&nbsp;
